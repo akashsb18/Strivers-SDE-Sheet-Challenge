@@ -1,15 +1,15 @@
 #include <bits/stdc++.h>
 
-int lengthOfLongestConsecutiveSequence(vector<int> &arr, int n)
+int lengthOfLongestConsecutiveSequence(vector<int> &nums, int n)
 {
-    unordered_set<int> uniqueNumbers(arr.begin(), arr.end());
+    unordered_set<int> uniqueNumbers(nums.begin(), nums.end());
     int ans = 0;
     for (int i = 0; i < n; i++)
     {
-        if (uniqueNumbers.find(arr[i] - 1) == uniqueNumbers.end())
+        if (uniqueNumbers.find(nums[i] - 1) == uniqueNumbers.end())
         {
             int cnt = 0;
-            int num = arr[i];
+            int num = nums[i];
 
             while (uniqueNumbers.find(num) != uniqueNumbers.end())
             {

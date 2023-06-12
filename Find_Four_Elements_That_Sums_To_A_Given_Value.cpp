@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-string fourSum(vector<int> arr, int target, int n)
+string fourSum(vector<int> arr, int x, int n)
 {
     sort(arr.begin(), arr.end());
 
@@ -15,11 +15,11 @@ string fourSum(vector<int> arr, int target, int n)
             {
                 int sum = arr[i] + arr[j] + arr[left] + arr[right];
 
-                if (sum == target)
+                if (sum == x)
                 {
                     return "Yes";
                 }
-                else if (sum < target)
+                else if (sum < x)
                 {
                     left++;
                 }

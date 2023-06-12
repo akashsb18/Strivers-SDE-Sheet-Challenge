@@ -1,6 +1,5 @@
 vector<int> bottomView(BinaryTreeNode<int> *root)
 {
-
     queue<pair<BinaryTreeNode<int> *, int>> q;
     map<int, int> mp;
     vector<int> ans;

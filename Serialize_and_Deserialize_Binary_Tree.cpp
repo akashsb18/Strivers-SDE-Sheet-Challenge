@@ -1,6 +1,6 @@
 
 #include <sstream>
-string serializeTree(TreeNode<int> *root)
+string serializeTree(Node<int> *root)
 {
     if (root == NULL)
     {
@@ -8,12 +8,12 @@ string serializeTree(TreeNode<int> *root)
     }
     string ans = "";
 
-    queue<TreeNode<int> *> q;
+    queue<Node<int> *> q;
     q.push(root);
 
     while (!q.empty())
     {
-        TreeNode<int> *node = q.front();
+        Node<int> *node = q.front();
         q.pop();
         if (node == NULL)
         {
@@ -32,7 +32,7 @@ string serializeTree(TreeNode<int> *root)
     return ans;
 }
 
-TreeNode<int> *deserializeTree(string &data)
+Node<int> *deserializeTree(string &data)
 {
     if (data.size() == 0)
     {
@@ -41,12 +41,12 @@ TreeNode<int> *deserializeTree(string &data)
     stringstream s(data);
     string str;
     getline(s, str, ',');
-    TreeNode<int> *root = new TreeNode<int>(stoi(str));
-    queue<TreeNode<int> *> q;
+    Node<int> *root = new Node<int>(stoi(str));
+    queue<Node<int> *> q;
     q.push(root);
     while (!q.empty())
     {
-        TreeNode<int> *node = q.front();
+        Node<int> *node = q.front();
         q.pop();
 
         getline(s, str, ',');
@@ -56,7 +56,7 @@ TreeNode<int> *deserializeTree(string &data)
         }
         else
         {
-            TreeNode<int> *leftNode = new TreeNode<int>(stoi(str));
+            Node<int> *leftNode = new Node<int>(stoi(str));
             node->left = leftNode;
             q.push(leftNode);
         }
@@ -67,7 +67,7 @@ TreeNode<int> *deserializeTree(string &data)
         }
         else
         {
-            TreeNode<int> *rightNode = new TreeNode<int>(stoi(str));
+            Node<int> *rightNode = new Node<int>(stoi(str));
             node->right = rightNode;
             q.push(rightNode);
         }
