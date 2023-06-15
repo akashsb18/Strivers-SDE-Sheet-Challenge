@@ -1,0 +1,82 @@
+#include <bits/stdc++.h>
+
+/************************************************************
+    Following is the TreeNode class structure
+
+    template <typename T>
+    class TreeNode {
+       public:
+        T val;
+        TreeNode<T> *left;
+        TreeNode<T> *right;
+
+        TreeNode(T val) {
+            this->val = val;
+            left = NULL;
+            right = NULL;
+        }
+    };
+************************************************************/
+int getMaxWidth(TreeNode<int> *root)
+
+{
+
+    // Write your code here.
+
+    if (root == NULL)
+        return {};
+
+    queue<TreeNode<int> *> q;
+
+    vector<int> ans;
+
+    q.push(root);
+
+    q.push(NULL);
+
+    int max_width = 0;
+
+    // ans.push_back(root->val);
+
+    while (!q.empty())
+    {
+
+        TreeNode<int> *child = q.front();
+
+        q.pop();
+
+        if (child == NULL)
+        {
+
+            if (q.size() != 0)
+            {
+
+                int a = ans.size();
+
+                max_width = max(a, max_width);
+
+                ans = {};
+
+                q.push(NULL);
+            }
+        }
+
+        else
+        {
+
+            ans.push_back(child->val);
+
+            if (child->left != NULL)
+                q.push(child->left);
+
+            if (child->right != NULL)
+                q.push(child->right);
+        }
+
+        int a = ans.size();
+
+        max_width = max(a, max_width);
+    }
+
+    return max_width;
+}
