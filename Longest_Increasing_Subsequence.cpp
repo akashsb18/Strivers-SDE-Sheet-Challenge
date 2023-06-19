@@ -2,6 +2,7 @@
 int longestIncreasingSubsequence(int v[], int n)
 {
     vector<int> temp;
+
     temp.push_back(v[0]);
     for (int i = 1; i < n; i++)
     {
@@ -15,5 +16,6 @@ int longestIncreasingSubsequence(int v[], int n)
             temp[ind] = v[i];
         }
     }
+
     return temp.size();
 }
